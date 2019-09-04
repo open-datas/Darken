@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- service group artifactId -->
+	<artifactId>entity</artifactId>
+	<!-- spring boot parent  -->
+	<parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.hone</groupId>
+        <version>1.0.1.RELEASE</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+	<!-- service group name -->
+	<name>entity</name>
+	<!-- encoding and java version -->
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+	<!-- Maven Dependencies -->
+	<dependencies>
+		<!-- org freemarker dependency -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.26-incubating</version>
+        </dependency>
+		<!-- io swagger swagger annotations dependency -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.10</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- io spring fox swagger2 dependency -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+	</dependencies>
+</project>
