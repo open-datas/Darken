@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- service group artifactId -->
+    <artifactId>dao</artifactId>
+    <!-- spring boot parent  -->
+	<parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.info</groupId>
+        <version>1.0.1.RELEASE</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+    <!-- service group name -->
+    <name>dao</name>
+    <!-- encoding and java version -->
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+    <!-- dependencies start -->
+    <dependencies>
+    	<!-- common dependency -->
+        <dependency>
+            <groupId>com.info</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+        <!-- model dependency -->
+		<dependency>
+            <groupId>com.info</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+        <!-- entity dependency -->
+		<dependency>
+            <groupId>com.info</groupId>
+            <artifactId>entity</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+        <!-- spring boot starter mybatis dependency -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <!-- spring boot starter page helper dependency -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <!-- spring boot starter jdbc dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+    </dependencies>
+</project>
