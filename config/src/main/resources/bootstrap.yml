@@ -1,0 +1,28 @@
+# Config Server Port Setting
+server:
+  port: 8000
+# Spring Core Info Setting
+spring:
+  # Spring Application Name Setting
+  application:
+    name: config-server
+  # Spring Profiles Active Setting
+  profiles:
+    active:
+    - native
+  # Spring Cloud Config Server Native Search Locations Setting
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/properties/
+  security:
+    user:
+      name: master
+      password: model_master
+# Eureka Client Setting
+eureka:
+  # Eureka Client Service Url Default Zone Setting
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
