@@ -1,0 +1,48 @@
+# Comparison Server Port Setting
+server:
+  port: 8084
+# Spring Core Info Setting
+spring:
+  # Spring Application Name Setting
+  application:
+    name: comparison
+  # Spring http encoding Setting
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  # 
+  cloud:
+    config:
+      profile: application
+      label: master
+      uri: http://localhost:8000
+      username: master
+      password: model_master
+      fail-fast: true
+      retry:
+        initial-interval: 1000
+        max-attempts: 10
+        max-interval: 2000
+        multiplier: 1.1
+#      discovery:
+#        enabled: true
+#        service-id: config-server
+# If True Pull Config Server Update Setting & If False Not Pull Config Server Update Setting
+management:
+  endpoint:
+    refresh:
+      enabled: true
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    healthcheck:
+      enabled: true
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
