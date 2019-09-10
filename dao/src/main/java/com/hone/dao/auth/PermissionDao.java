@@ -1,4 +1,4 @@
-package com.info.dao.auth;
+package com.hone.dao.auth;
 
 import com.hone.entity.auth.P_Permission;
 

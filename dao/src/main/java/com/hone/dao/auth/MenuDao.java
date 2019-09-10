@@ -1,4 +1,4 @@
-package com.info.dao.auth;
+package com.hone.dao.auth;
 
 import org.apache.ibatis.annotations.Mapper;
 

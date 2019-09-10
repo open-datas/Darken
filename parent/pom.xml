@@ -14,7 +14,7 @@
 	<version>1.0.1.RELEASE</version>
 	<packaging>pom</packaging>
 	<name>parent</name>
-	<description>Parent project for BigData</description>
+	<description>Parent project for Darken</description>
 	<!-- encoding UTF-8 and spring cloud version -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

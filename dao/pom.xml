@@ -6,7 +6,7 @@
     <!-- spring boot parent  -->
 	<parent>
         <artifactId>parent</artifactId>
-        <groupId>com.info</groupId>
+        <groupId>com.hone</groupId>
         <version>1.0.1.RELEASE</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
@@ -22,19 +22,19 @@
     <dependencies>
     	<!-- common dependency -->
         <dependency>
-            <groupId>com.info</groupId>
+            <groupId>com.hone</groupId>
             <artifactId>common</artifactId>
             <version>1.0.1.RELEASE</version>
         </dependency>
         <!-- model dependency -->
 		<dependency>
-            <groupId>com.info</groupId>
+            <groupId>com.hone</groupId>
             <artifactId>model</artifactId>
             <version>1.0.1.RELEASE</version>
         </dependency>
         <!-- entity dependency -->
 		<dependency>
-            <groupId>com.info</groupId>
+            <groupId>com.hone</groupId>
             <artifactId>entity</artifactId>
             <version>1.0.1.RELEASE</version>
         </dependency>

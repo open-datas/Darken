@@ -1,4 +1,4 @@
-package com.info.dao.auth.provider;
+package com.hone.dao.auth.provider;
 
 import com.hone.entity.auth.P_User;
 import com.hone.entity.auth.UserParam;

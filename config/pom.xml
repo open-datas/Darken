@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>parent</artifactId>
 		<!-- service group name -->
-		<groupId>com.info</groupId>
+		<groupId>com.hone</groupId>
 		<version>1.0.1.RELEASE</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>

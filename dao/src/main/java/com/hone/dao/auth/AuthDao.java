@@ -1,6 +1,6 @@
-package com.info.dao.auth;
+package com.hone.dao.auth;
 
-import com.info.dao.auth.provider.AuthProvider;
+import com.hone.dao.auth.provider.AuthProvider;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.SelectProvider;
 

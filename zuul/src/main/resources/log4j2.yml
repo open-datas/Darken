@@ -147,7 +147,7 @@ Configuration:
         additivity: false
         AppenderRef:
           - ref: DB_ROLLING_FILE
-      - name: com.info
+      - name: com.hone
         level: info
         additivity: false
         AppenderRef:

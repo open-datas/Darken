@@ -1,4 +1,4 @@
-package com.info.dao.auth.provider;
+package com.hone.dao.auth.provider;
 
 import org.apache.ibatis.jdbc.SQL;
 

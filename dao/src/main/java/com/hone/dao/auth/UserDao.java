@@ -1,11 +1,11 @@
-package com.info.dao.auth;
+package com.hone.dao.auth;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.SelectProvider;
 
-import com.info.dao.auth.provider.UserProvider;
+import com.hone.dao.auth.provider.UserProvider;
 import com.hone.entity.auth.P_User;
 import com.hone.entity.auth.UserParam;
 import com.hone.entity.auth.UserQuery;
