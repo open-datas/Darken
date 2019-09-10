@@ -1,0 +1,39 @@
+# Eureka Server & Config Server Port Setting
+server:
+  port: 8090
+  profiles:
+    active: elk
+# Spring Core Info Setting
+spring:
+  # Spring Application Name Setting
+  application:
+    name: elk
+  # Data Info Source Setting
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dataintegration?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  # Data Elasticsearch Info Setting
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: docker-cluster
+      cluster-nodes: 192.168.95.152:9300
+# mybatis Core Setting
+mybatis:
+  # Base Setting
+  configuration:
+    # Map Under Score To Camel Case Setting
+    map-underscore-to-camel-case: true
+# Page Helper Setting
+pagehelper:
+  # Page Helper Reason Able Setting
+  reasonable: true
+  # Page Helper Support Methods Arguments Setting
+  support-methods-arguments: true
+  # Page Helper Page Size Zero Setting
+  page-size-zero: true
+  # Page Helper Params Setting
+  params: count=countSql
