@@ -1,11 +1,8 @@
 package com.hone.elk.server.controller;
 
 import com.github.pagehelper.PageInfo;
-
 import com.hone.common.json.CResult;
-
 import io.swagger.annotations.Api;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
