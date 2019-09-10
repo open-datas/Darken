@@ -1,0 +1,86 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: auth
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/largedata?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 123456
+  druid:
+    # Initializes The Connection Size
+    initialSize: 5
+    # Minimum Number Of Connection Pools
+    minIdle: 5
+    # Maximum Number Of Connection Pools
+    maxActive: 20
+    # Maximum Wait Time In Milliseconds For A Connection
+    maxWait: 60000
+    # Configuration Intervals Detect Idle Connections Closed In Milliseconds
+    timeBetweenEvictionRunsMillis: 60000
+    # Minimum Time In Milliseconds For A Connection To Survive In The Pool
+    minEvictableIdleTimeMillis: 300000
+    # Test Connection
+    validationQuery: SELECT 1 from DUAL
+    # Connection Guaranteed Safety Test(If True Not Affect Performance)
+    testWhileIdle: true
+    # Connection Checked (If True Affect Performance)
+    testOnBorrow: false
+    # Return Checked (If True Affect Performance)
+    testOnReturn: false
+    # PSCache，PSCache Cursor Setting (oracle Open & mysql Closed)
+    poolPreparedStatements: false
+    # PoolPreparedStatements Connection Size Setting
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # Configure Extension：Performance Monitoring Stat；Logger Log4j2；Defense Injection：wall
+    filters: stat,wall,log4j2
+    # Connection Properties mergeSql & Slow SQL Remark
+    connectionProperties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000'
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    session:
+      store-type: redis
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+# mybatis Setting
+mybatis:
+  # type aliases package Setting
+  type-aliases-package: com.hone.common.model
+  configuration:
+    # underscore & Camel Case change Setting
+    map-underscore-to-camel-case: true
+    # NULL Can Not Save Setting
+    jdbc-type-for-null: NULL
+    # Lazy Loading enable Setting
+    lazy-loading-enabled: true
+    # Lazy Loading Active Aggression(侵略) Setting
+    aggressive-lazy-loading: true
+    # Second Level Cache Enable Setting
+    cache-enabled: true
+    # Map Is Null Not View Setting
+    call-setters-on-nulls: true
+    # Debug Print Out LogsSetting
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  page-size-zero: true
+  params: count=countSql
+
+# token Setting 
+JWT:
+  header: Authorization
+  secret: MasterSecret
+  expiration: 10080
+  tokenHead: "Bearer "
