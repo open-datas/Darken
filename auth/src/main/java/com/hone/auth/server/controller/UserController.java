@@ -56,14 +56,14 @@ public class UserController {
 		return new CResult<P_User>(status, "200", null, null , null, "新增用戶成功！");
 	}
 	
-	@ApiOperation(value = "用户保存", notes ="用户保存必须信息" )
+	@ApiOperation(value = "用户删除", notes ="用户删除信息" )
     @RequestMapping(value = "/remove",method = RequestMethod.POST)
 	public CResult<P_User> remove(String id) {
 		boolean status = userService.remove(id);
 		return new CResult<P_User>(status, "200", null, null , null, "新增用戶成功！");
 	}
 	
-	@ApiOperation(value = "用户保存", notes ="用户保存必须信息" )
+	@ApiOperation(value = "用户查询", notes ="用户查询信息" )
     @RequestMapping(value = "/query",method = RequestMethod.POST)
 	public CResult<P_User> query(String id) {
 		P_User user = userService.query(id);

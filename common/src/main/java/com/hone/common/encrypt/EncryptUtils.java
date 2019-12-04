@@ -1,11 +1,15 @@
 package com.hone.common.encrypt;
 
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 
@@ -42,9 +46,9 @@ public class EncryptUtils {
 	 * @throws NoSuchAlgorithmException 
      */  
     public static String threeDesEncoder(String source, String key) throws Exception {
-		SecretKey secretKey = new SecretKeySpec(build3DesKey(key), "DESede");  
-	    Cipher cipher = Cipher.getInstance("DESede");  
-	    cipher.init(Cipher.ENCRYPT_MODE, secretKey);  
+		SecretKey secretKey = new SecretKeySpec(build3DesKey(key), "DESede");
+	    Cipher cipher = Cipher.getInstance("DESede");
+	    cipher.init(Cipher.PUBLIC_KEY, secretKey);
 	    byte[] b = cipher.doFinal(source.getBytes("UTF8"));  
 	    return byte2HexStr(b);
     }  
@@ -57,13 +61,13 @@ public class EncryptUtils {
      * @throws Exception 
      */  
     public static String threeDesDecoder(String dest, String key) throws Exception {
-    	SecretKey secretKey = new SecretKeySpec(build3DesKey(key), "DESede");  
-		Cipher cipher = Cipher.getInstance("DESede");  
+    	SecretKey secretKey = new SecretKeySpec(build3DesKey(key), "DESede");
+		Cipher cipher = Cipher.getInstance("DESede");
 		cipher.init(Cipher.DECRYPT_MODE, secretKey);  
 		byte[] b = cipher.doFinal(str2ByteArray(dest));
 		return new String(b, "UTF8");
-    }  
-      
+    }
+
     /** 
      *  二进制转换为十六进制
      * @param bytes 
@@ -133,5 +137,60 @@ public class EncryptUtils {
             System.arraycopy(temp, 0, key, 0, key.length);  
         }
         return key;  
-    }  
+    }
+
+    private static final String ivStr = "43720ui239062387";
+
+    /**
+     * 构造AES加密方法key
+     * @param strKey
+     * @param strIn
+     * @return
+     * @throws Exception
+     */
+    public static String encryptAes(String strKey, String strIn) throws Exception {
+        SecretKeySpec skeySpec = build3AesKey(strKey);
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        IvParameterSpec iv = new IvParameterSpec(ivStr.getBytes());
+        cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
+        byte[] encrypted = cipher.doFinal(strIn.getBytes("utf-8"));
+        BASE64Encoder encoder = new BASE64Encoder();
+        return encoder.encode(encrypted);
+    }
+    /**
+     * 构造AES解密方法key
+     * @param keyStr
+     * @return
+     * @throws Exception
+     */
+    private static SecretKeySpec build3AesKey(String keyStr) throws Exception {
+        byte[] arrBTmp = keyStr.getBytes();
+        byte[] arrB = new byte[16]; // 创建一个空的16位字节数组（默认值为0）
+        for (int i = 0; i < arrBTmp.length && i < arrB.length; i++) {
+            arrB[i] = arrBTmp[i];
+        }
+        SecretKeySpec skeySpec = new SecretKeySpec(arrB, "AES");
+        return skeySpec;
+    }
+
+    /**
+     * 构造AES加解密方法key
+     * @param strKey
+     * @param strIn
+     * @return
+     * @throws Exception
+     */
+    public static String decryptAes(String strKey, String strIn) throws Exception {
+        SecretKeySpec skeySpec = build3AesKey(strKey);
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        IvParameterSpec iv = new IvParameterSpec(ivStr.getBytes());
+        cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+
+        BASE64Decoder decoder = new BASE64Decoder();
+        byte[] encrypted1 = decoder.decodeBuffer(strIn);
+        byte[] original = cipher.doFinal(encrypted1);
+        String originalString = new String(original, "utf-8");
+        return originalString;
+    }
+
 }
